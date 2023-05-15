@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border"
+    android:gravity="center|top"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/llForQuote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/quoteTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/special_elite"
+            android:lineSpacingExtra="12sp"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#000D53"
+            android:textSize="24sp"
+            android:typeface="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/llForQuote"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:progress="1"
+            android:minHeight="20dp"
+            android:minWidth="250dp"
+            android:max="100"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="50dp"
+            android:layout_height="5dp"
+            android:layout_centerHorizontal="true"
+            android:background="#E91E63"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/authorTv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/view_line"
+            android:fontFamily="@font/special_elite"
+            android:lineSpacingExtra="12sp"
+            android:padding="32dp"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#000D53"
+            android:textSize="24sp"
+            android:typeface="normal" />
+
+    </RelativeLayout>
+
+    <!--    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="Vertical Line"
+                android:background="#512DA8"
+                android:textSize="25sp"
+                android:gravity="center_horizontal"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="560dp"
+                android:background="#E91E63"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="175dp"/>
+        </LinearLayout>-->
+
+</RelativeLayout>
