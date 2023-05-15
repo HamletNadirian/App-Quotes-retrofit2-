@@ -1,4 +1,4 @@
-package nadirian.hamlet.android.myapplication
+package nadirian.hamlet.android.quotesusingretrofit2
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

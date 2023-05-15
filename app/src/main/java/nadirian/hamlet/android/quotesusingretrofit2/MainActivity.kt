@@ -13,8 +13,6 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import nadirian.hamlet.android.myapplication.QuotesApi
-import nadirian.hamlet.android.myapplication.RetrofitHelper
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
@@ -66,7 +64,8 @@ class MainActivity : AppCompatActivity() {
             val rndsPage = (1..max_total_pages).random()
             val rnds_color_index = (list.indices).random()
             result = quotesApi.getQuotes(rndsPage)
-            val max_count_quotes_on_page = quotesApi.getQuotes(rndsPage).body()?.count.toString().toInt()
+            val max_count_quotes_on_page =
+                quotesApi.getQuotes(rndsPage).body()?.count.toString().toInt()
             val rndsQuote = (1..max_count_quotes_on_page).random()
 
             runOnUiThread {
@@ -74,8 +73,8 @@ class MainActivity : AppCompatActivity() {
                 Log.d("nadirian: ", rndsPage.toString())
                 lineV.visibility = View.VISIBLE;
                 val string =
-                    SpannableString(result.body()?.results?.get(rndsQuote-1)?.content.toString())
-                Log.d("nadirian: ", result.body()?.results?.get(rndsQuote-1)?.content.toString())
+                    SpannableString(result.body()?.results?.get(rndsQuote - 1)?.content.toString())
+                Log.d("nadirian: ", result.body()?.results?.get(rndsQuote - 1)?.content.toString())
 
                 string.setSpan(
                     BackgroundColorSpan(list.get(rnds_color_index)),
@@ -84,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
                 quoteTv.text = string
-                authorTv.text = result.body()?.results?.get(rndsQuote-1)?.author
+                authorTv.text = result.body()?.results?.get(rndsQuote - 1)?.author
             }
         }
 

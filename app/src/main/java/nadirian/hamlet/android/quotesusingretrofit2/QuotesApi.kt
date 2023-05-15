@@ -1,10 +1,8 @@
-package nadirian.hamlet.android.myapplication
+package nadirian.hamlet.android.quotesusingretrofit2
 
-import retrofit2.Call
+import nadirian.hamlet.android.quotesusingretrofit2.QuoteList
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface QuotesApi {

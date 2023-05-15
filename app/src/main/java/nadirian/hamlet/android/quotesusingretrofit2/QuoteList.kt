@@ -1,4 +1,4 @@
-package nadirian.hamlet.android.myapplication
+package nadirian.hamlet.android.quotesusingretrofit2
 
 data class QuoteList(
     val count: Int,
@@ -7,6 +7,4 @@ data class QuoteList(
     val results: List<Result>,
     val totalCount: Int,
     val totalPages: Int
-
-
 )

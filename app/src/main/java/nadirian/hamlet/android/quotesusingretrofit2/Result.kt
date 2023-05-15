@@ -1,4 +1,4 @@
-package nadirian.hamlet.android.myapplication
+package nadirian.hamlet.android.quotesusingretrofit2
 
 data class Result(
     val _id: String,
