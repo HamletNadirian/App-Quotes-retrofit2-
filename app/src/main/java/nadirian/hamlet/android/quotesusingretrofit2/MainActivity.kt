@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private val pgsBar: ProgressBar? = null
     private var i = 0
     private val hdlr = Handler()
-    val list = listOf(
+    val colorsList = listOf(
         Color.LTGRAY,
         Color.MAGENTA,
         Color.YELLOW,
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         Color.CYAN,
         Color.RED
     )
+    val quotesApi = RetrofitHelper.getInstance().create(QuotesApi::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,15 +55,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val quotesApi = RetrofitHelper.getInstance().create(QuotesApi::class.java)
 
         GlobalScope.launch {
             var result = quotesApi.getQuotes(1)
-            Log.d("nadirian: ", quotesApi.getQuotes(1).body()?.totalPages.toString())
+            //Log.d("nadirian: ", quotesApi.getQuotes(1).body()?.totalPages.toString())
             val max_total_pages = quotesApi.getQuotes(1).body()?.totalPages.toString().toInt()
 
             val rndsPage = (1..max_total_pages).random()
-            val rnds_color_index = (list.indices).random()
+            val rnds_color_index = (colorsList.indices).random()
             result = quotesApi.getQuotes(rndsPage)
             val max_count_quotes_on_page =
                 quotesApi.getQuotes(rndsPage).body()?.count.toString().toInt()
@@ -70,14 +70,14 @@ class MainActivity : AppCompatActivity() {
 
             runOnUiThread {
                 progressBar.visibility = View.INVISIBLE
-                Log.d("nadirian: ", rndsPage.toString())
+                //Log.d("nadirian: ", rndsPage.toString())
                 lineV.visibility = View.VISIBLE;
                 val string =
                     SpannableString(result.body()?.results?.get(rndsQuote - 1)?.content.toString())
-                Log.d("nadirian: ", result.body()?.results?.get(rndsQuote - 1)?.content.toString())
+              //  Log.d("nadirian: ", result.body()?.results?.get(rndsQuote - 1)?.content.toString())
 
                 string.setSpan(
-                    BackgroundColorSpan(list.get(rnds_color_index)),
+                    BackgroundColorSpan(colorsList.get(rnds_color_index)),
                     0,
                     string.length,
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -86,6 +86,5 @@ class MainActivity : AppCompatActivity() {
                 authorTv.text = result.body()?.results?.get(rndsQuote - 1)?.author
             }
         }
-
     }
 }
